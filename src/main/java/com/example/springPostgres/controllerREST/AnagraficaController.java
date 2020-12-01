@@ -32,7 +32,7 @@ public class AnagraficaController {
 
 
     @PostMapping    // POST Method for Create operation
-    public Anagrafica createPhone(@RequestBody Anagrafica ana) {
+    public Anagrafica createAnagrafica(@RequestBody Anagrafica ana) {
         return anaRepository.save(ana);
     }
 
@@ -49,8 +49,8 @@ public class AnagraficaController {
         anagrafica.setDate_create(anaDetails.getDate_create());
         anagrafica.setDate_agg(anaDetails.getDate_agg());
 
-        final Anagrafica updatedPhone = anaRepository.save(anagrafica);
-        return ResponseEntity.ok(updatedPhone);
+        final Anagrafica updatedAnagrafica = anaRepository.save(anagrafica);
+        return ResponseEntity.ok(updatedAnagrafica);
     }
 
     @DeleteMapping("/{id}")    // DELETE Method for Delete operation
