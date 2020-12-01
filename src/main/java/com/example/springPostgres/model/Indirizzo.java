@@ -72,9 +72,12 @@ public class Indirizzo {
         this.date_agg = data_agg;
     }
 
+    /*
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idana", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
     private Anagrafica anagrafica;
+    */
+
 
 }

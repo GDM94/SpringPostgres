@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,13 @@ public class AnagraficaController {
                 .orElseThrow(() -> new Exception("Phone " + anaId + " not found"));
         return ResponseEntity.ok().body(anagrafica);
     }
+
+    @GetMapping("/selectall")    // Select with @Query
+    public List<String> findAllActiveUsersNative() {
+        List<String> l = anaRepository.findAllActiveUsersNative();
+        return l;
+    }
+
 
 
     @PostMapping    // POST Method for Create operation
