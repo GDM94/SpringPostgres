@@ -3,6 +3,7 @@ package com.example.springPostgres.bean;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -10,7 +11,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Anagrafica {
     @Id
-    @GeneratedValue private int id;
+    private int idana;
 
     @Column(name="nome", nullable = false)
     private String nome;
@@ -18,18 +19,18 @@ public class Anagrafica {
     @Column(name="cognome", nullable = false)
     private String cognome;
 
-    @Column(name = "data_create", nullable = false)
-    private java.util.Date data_create;
+    @Column(name = "date_create", nullable = false)
+    private java.util.Date date_create;
 
-    @Column(name = "data_agg", nullable = false)
-    private java.util.Date data_agg;
+    @Column(name = "date_agg", nullable = false)
+    private java.util.Date date_agg;
 
-    public int getId() {
-        return id;
+    public int getIdana() {
+        return idana;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdana(int idana) {
+        this.idana = idana;
     }
 
     public String getNome() {
@@ -48,20 +49,20 @@ public class Anagrafica {
         this.cognome = cognome;
     }
 
-    public Date getData_create() {
-        return data_create;
+    public Date getDate_create() {
+        return date_create;
     }
 
-    public void setData_create(Date data_create) {
-        this.data_create = data_create;
+    public void setDate_create(Date date_create) {
+        this.date_create = date_create;
     }
 
-    public Date getData_agg() {
-        return data_agg;
+    public Date getDate_agg() {
+        return date_agg;
     }
 
-    public void setData_agg(Date data_agg) {
-        this.data_agg = data_agg;
+    public void setDate_agg(Date date_agg) {
+        this.date_agg = date_agg;
     }
 
 }
