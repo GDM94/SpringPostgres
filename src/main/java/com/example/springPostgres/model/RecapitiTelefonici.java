@@ -1,14 +1,17 @@
 package com.example.springPostgres.model;
 
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name= "recapiti_telefonici")
 @EntityListeners(AuditingEntityListener.class)
-public class RecapitiTelefonici {
+public class RecapitiTelefonici implements Serializable {
     @Id
     private long idreca;
 
@@ -52,4 +55,9 @@ public class RecapitiTelefonici {
     public void setNumero_recapito(String numero_recapito) {
         this.numero_recapito = numero_recapito;
     }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idana", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private Anagrafica anagrafica;
 }

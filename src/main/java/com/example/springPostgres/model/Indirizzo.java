@@ -5,12 +5,13 @@ import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name= "Indirizzo")
 @EntityListeners(AuditingEntityListener.class)
-public class Indirizzo {
+public class Indirizzo implements Serializable {
     @Id
     private int idaddress;
 

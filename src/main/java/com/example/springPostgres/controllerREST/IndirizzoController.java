@@ -32,17 +32,6 @@ public class IndirizzoController {
     }
 
 
-    @GetMapping("/all/{id}")    // GET Method for Read operation
-    public ResponseEntity<Indirizzo> getIndirizzoByIdanagrafica(@PathVariable(value = "id") Long indId)
-            throws Exception {
-
-        Indirizzo indirizzo = indRepository.getOne(indId);
-        indirizzo.
-
-        return ResponseEntity.ok().body(indirizzo);
-    }
-
-
     @PostMapping    // POST Method for Create operation
     public Indirizzo createPhone(@RequestBody Indirizzo ind) {
         return indRepository.save(ind);

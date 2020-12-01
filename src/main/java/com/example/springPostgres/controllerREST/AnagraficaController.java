@@ -26,8 +26,13 @@ public class AnagraficaController {
             throws Exception {
 
         Anagrafica anagrafica = anaRepository.findById(anaId)
-                .orElseThrow(() -> new Exception("Phone " + anaId + " not found"));
+                .orElseThrow(() -> new Exception("Amagrafica " + anaId + " not found"));
         return ResponseEntity.ok().body(anagrafica);
+    }
+
+    @GetMapping("/query/{id}")
+    public  List<String> getQueryID(@PathVariable(value = "id") long anaId) throws Exception {
+        return anaRepository.getName_Numero(anaId);
     }
 
 
