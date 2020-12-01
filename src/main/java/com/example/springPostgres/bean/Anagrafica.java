@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name= "Anagrafica")
+@Table(name= "anagrafica")
 @EntityListeners(AuditingEntityListener.class)
 public class Anagrafica {
     @Id
