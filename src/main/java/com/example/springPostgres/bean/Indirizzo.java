@@ -66,7 +66,7 @@ public class Indirizzo {
         return date_agg;
     }
 
-    public void setData_agg(Date data_agg) {
+    public void setDate_agg(Date data_agg) {
         this.date_agg = data_agg;
     }
 
