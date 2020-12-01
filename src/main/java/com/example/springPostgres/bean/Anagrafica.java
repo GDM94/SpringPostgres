@@ -3,7 +3,6 @@ package com.example.springPostgres.bean;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Date;
 
 @Entity
@@ -11,7 +10,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Anagrafica {
     @Id
-    private int idana;
+    private long idana;
 
     @Column(name="nome", nullable = false)
     private String nome;
@@ -25,11 +24,11 @@ public class Anagrafica {
     @Column(name = "date_agg", nullable = false)
     private java.util.Date date_agg;
 
-    public int getIdana() {
+    public long getIdana() {
         return idana;
     }
 
-    public void setIdana(int idana) {
+    public void setIdana(long idana) {
         this.idana = idana;
     }
 
