@@ -1,4 +1,4 @@
-package com.example.springPostgres.bean;
+package com.example.springPostgres.model;
 
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

@@ -1,6 +1,6 @@
-package com.example.springPostgres.repository;
+package com.example.springPostgres.services;
 
-import com.example.springPostgres.bean.RecapitiTelefonici;
+import com.example.springPostgres.model.RecapitiTelefonici;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecapitiRepository extends JpaRepository<RecapitiTelefonici, Long> {

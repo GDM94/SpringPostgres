@@ -1,8 +1,7 @@
 package com.example.springPostgres.controllerREST;
 
-import com.example.springPostgres.bean.Anagrafica;
-import com.example.springPostgres.bean.Indirizzo;
-import com.example.springPostgres.repository.*;
+import com.example.springPostgres.model.Indirizzo;
+import com.example.springPostgres.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +30,18 @@ public class IndirizzoController {
                 .orElseThrow(() -> new Exception("Phone " + indId + " not found"));
         return ResponseEntity.ok().body(indirizzo);
     }
+
+
+    @GetMapping("/all/{id}")    // GET Method for Read operation
+    public ResponseEntity<Indirizzo> getIndirizzoByIdanagrafica(@PathVariable(value = "id") Long indId)
+            throws Exception {
+
+        Indirizzo indirizzo = indRepository.getOne(indId);
+        indirizzo.
+
+        return ResponseEntity.ok().body(indirizzo);
+    }
+
 
     @PostMapping    // POST Method for Create operation
     public Indirizzo createPhone(@RequestBody Indirizzo ind) {

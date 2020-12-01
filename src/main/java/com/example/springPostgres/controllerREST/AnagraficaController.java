@@ -1,7 +1,7 @@
 package com.example.springPostgres.controllerREST;
 
-import com.example.springPostgres.bean.*;
-import com.example.springPostgres.repository.*;
+import com.example.springPostgres.model.*;
+import com.example.springPostgres.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import java.util.Map;
 @RequestMapping("/anagrafica")
 public class AnagraficaController {
     @Autowired
-    public AnagraficaRepository anaRepository;
+    public AnagraficaService anaRepository;
 
     @GetMapping   // GET Method for reading operation
     public List<Anagrafica> getAllanagrafica() {

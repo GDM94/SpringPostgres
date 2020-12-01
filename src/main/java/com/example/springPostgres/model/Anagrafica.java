@@ -1,5 +1,7 @@
-package com.example.springPostgres.bean;
+package com.example.springPostgres.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -63,5 +65,7 @@ public class Anagrafica {
     public void setDate_agg(Date date_agg) {
         this.date_agg = date_agg;
     }
+
+
 
 }

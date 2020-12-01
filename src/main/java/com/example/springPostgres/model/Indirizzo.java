@@ -1,5 +1,7 @@
-package com.example.springPostgres.bean;
+package com.example.springPostgres.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -69,5 +71,10 @@ public class Indirizzo {
     public void setDate_agg(Date data_agg) {
         this.date_agg = data_agg;
     }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idana", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private Anagrafica anagrafica;
 
 }

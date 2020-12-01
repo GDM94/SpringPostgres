@@ -1,9 +1,8 @@
 package com.example.springPostgres.controllerREST;
 
 
-import com.example.springPostgres.bean.Anagrafica;
-import com.example.springPostgres.bean.RecapitiTelefonici;
-import com.example.springPostgres.repository.RecapitiRepository;
+import com.example.springPostgres.model.RecapitiTelefonici;
+import com.example.springPostgres.services.RecapitiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
