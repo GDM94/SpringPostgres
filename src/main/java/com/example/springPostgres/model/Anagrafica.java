@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name= "anagrafica")
@@ -66,6 +67,12 @@ public class Anagrafica implements Serializable {
     public void setDate_agg(Date date_agg) {
         this.date_agg = date_agg;
     }
+
+    /*
+    @OneToMany(mappedBy="anagrafica", cascade=CascadeType.ALL)
+    private List<Indirizzo> indirizzo;
+
+     */
 
 
 
