@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/anagrafica")
@@ -18,6 +20,16 @@ public class AnagraficaController {
     public List<Anagrafica> getAllanagrafica() {
         return anaRepository.findAll();
     }
+
+    @GetMapping("/{id}")    // GET Method for Read operation
+    public ResponseEntity<Anagrafica> getAnagraficaById(@PathVariable(value = "id") Long anaId)
+            throws Exception {
+
+        Anagrafica anagrafica = anaRepository.findById(anaId)
+                .orElseThrow(() -> new Exception("Phone " + anaId + " not found"));
+        return ResponseEntity.ok().body(anagrafica);
+    }
+
 
     @PostMapping    // POST Method for Create operation
     public Anagrafica createPhone(@RequestBody Anagrafica ana) {
@@ -39,6 +51,17 @@ public class AnagraficaController {
 
         final Anagrafica updatedPhone = anaRepository.save(anagrafica);
         return ResponseEntity.ok(updatedPhone);
+    }
+
+    @DeleteMapping("/{id}")    // DELETE Method for Delete operation
+    public Map<String, Boolean> deleteAnagrafica(@PathVariable(value = "id") Long anaID) throws Exception {
+        Anagrafica anagrafica = anaRepository.findById(anaID)
+                .orElseThrow(() -> new Exception("Phone " + anaID + " not found"));
+
+        anaRepository.delete(anagrafica);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
     }
 
 
