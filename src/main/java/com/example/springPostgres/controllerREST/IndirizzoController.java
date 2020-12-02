@@ -15,18 +15,18 @@ import java.util.Map;
 
 public class IndirizzoController {
     @Autowired
-    public IndirizzoRepository indRepository;
+    public IndirizzoService indirizzoService;
 
     @GetMapping   // GET Method for reading operation
     public List<Indirizzo> getAllindirizzo() {
-        return indRepository.findAll();
+        return indirizzoService.findAll();
     }
 
     @GetMapping("/{id}")    // GET Method for Read operation
     public ResponseEntity<Indirizzo> getIndirizzoById(@PathVariable(value = "id") Long indId)
             throws Exception {
 
-        Indirizzo indirizzo = indRepository.findById(indId)
+        Indirizzo indirizzo = indirizzoService.findById(indId)
                 .orElseThrow(() -> new Exception("Phone " + indId + " not found"));
         return ResponseEntity.ok().body(indirizzo);
     }
@@ -43,7 +43,7 @@ public class IndirizzoController {
 
     @PostMapping    // POST Method for Create operation
     public Indirizzo createPhone(@RequestBody Indirizzo ind) {
-        return indRepository.save(ind);
+        return indirizzoService.save(ind);
     }
 
     @PutMapping("/{id}")
@@ -51,7 +51,7 @@ public class IndirizzoController {
             @PathVariable(value = "id") long indId,  @RequestBody Indirizzo anaDetails)
             throws Exception {
 
-        Indirizzo indirizzo = indRepository.findById(indId)
+        Indirizzo indirizzo = indirizzoService.findById(indId)
                 .orElseThrow(() -> new Exception("Indirizzo" + indId + " not found"));
 
         indirizzo.setIdAna(anaDetails.getIdAna());
@@ -59,16 +59,16 @@ public class IndirizzoController {
         indirizzo.setDate_create(anaDetails.getDate_create());
         indirizzo.setDate_agg(anaDetails.getDate_agg());
 
-        final Indirizzo updatedPhone = indRepository.save(indirizzo);
+        final Indirizzo updatedPhone = indirizzoService.save(indirizzo);
         return ResponseEntity.ok(updatedPhone);
     }
 
     @DeleteMapping("/{id}")    // DELETE Method for Delete operation
     public Map<String, Boolean> deleteIndirizzo(@PathVariable(value = "id") Long indId) throws Exception {
-        Indirizzo indirizzo = indRepository.findById(indId)
+        Indirizzo indirizzo = indirizzoService.findById(indId)
                 .orElseThrow(() -> new Exception("Phone " + indId + " not found"));
 
-        indRepository.delete(indirizzo);
+        indirizzoService.delete(indirizzo);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
